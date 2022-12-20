@@ -34,3 +34,15 @@ let employee: {
 } = { id: 1, name: '', retire: (date: Date) => console.log(date) }
 
 employee.name = 'David'
+//Aliases
+type Employee = {
+    readonly id: number
+    name: string
+    desc?: string
+    retire: (date: Date) => void
+}
+let employeeOne: Employee = {
+    id: 1,
+    name: 'Kolia',
+    retire: (date: Date) => console.log(date)
+}
