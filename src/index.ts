@@ -92,7 +92,7 @@ function getCustomer(id: number): Customer | null | undefined {
 }
 
 let customer = getCustomer(0)
-//Optional property access operator
+//Optional property access operator ?
 console.log(customer?.birthday?.getFullYear())
 //Optional element access operator
 // customer?.[0]
@@ -100,3 +100,8 @@ console.log(customer?.birthday?.getFullYear())
 //Optional call
 let log: any = null
 log?.('a')
+//The nullish coalescing operator ??
+let speed: number | null = null
+let ride = {
+    speed: speed ?? 30
+}
