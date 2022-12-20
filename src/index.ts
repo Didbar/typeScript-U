@@ -76,3 +76,10 @@ type Quantity = 50 | 100 | 150
 let quantity: Quantity = 100
 
 type Metric = 'cm' | 'inch'
+//Nullable Types
+function greet(name: string | null | undefined) {
+    return name ? console.log(name.toUpperCase()) : console.log('Hola! Stranger')
+}
+
+greet(null)
+greet(undefined)
