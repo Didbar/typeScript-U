@@ -19,3 +19,9 @@ const enum Sizes {
     Large
 }
 let mySize: Sizes = Sizes.Medium
+//Functions
+function calculateTax(income: number, taxYear = 2022): number {
+    return taxYear < 2022 ? income + 1.2 : income * 1.3
+}
+
+calculateTax(10_000)
