@@ -126,6 +126,7 @@ function render(document: unknown) {
     */
 }
 //The never Type
+/*
 function reject(message: string): never {
     throw new Error(message)
 }
@@ -138,3 +139,4 @@ function processEvents(): never {
 // processEvents()
 reject('...')
 console.log('Hello World')
+*/
