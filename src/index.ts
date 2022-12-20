@@ -31,7 +31,11 @@ let employee: {
     name: string
     desc?: string
     retire: (date: Date) => void
-} = { id: 1, name: '', retire: (date: Date) => console.log(date) }
+} = {
+    id: 1,
+    name: '',
+    retire: (date: Date) => console.log(date)
+}
 
 employee.name = 'David'
 //Aliases
@@ -46,3 +50,11 @@ let employeeOne: Employee = {
     name: 'Kolia',
     retire: (date: Date) => console.log(date)
 }
+// Union types
+function kgToLbs(weight: number | string): number {
+    //Narrowing
+    return typeof weight === 'number' ? weight * 2.2 : parseInt(weight) * 2.2
+}
+
+kgToLbs(10)
+kgToLbs('10kg')
