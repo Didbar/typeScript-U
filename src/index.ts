@@ -105,3 +105,23 @@ let speed: number | null = null
 let ride = {
     speed: speed ?? 30
 }
+//Type Assertions
+let phone = document.getElementById('phone') as HTMLInputElement
+let phone1 = <HTMLInputElement>document.getElementById('phone')
+//The unknown Type
+function render(document: unknown) {
+    //Narrowing
+    if (typeof document === 'string') {
+        document.toUpperCase()
+    }
+    /* unknown vs any
+
+    if (typeof instanceof wordDocument) {
+        document.toUpperCase()
+    }
+
+    document.fly()
+    document.move()
+    document.whateverWeWant()
+    */
+}
