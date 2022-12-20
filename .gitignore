@@ -1,1 +1,3 @@
 .vscode
+# Ignore built ts files
+dist/**/*
