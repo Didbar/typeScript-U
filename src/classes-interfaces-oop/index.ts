@@ -53,6 +53,13 @@ class Student extends Person {
         console.log('Taking a Test')
     }
 }
+
+class Teacher extends Person {
+    override get fullName() {
+        return 'Professor ' + super.fullName
+    }
+}
+
 // //General Class
 // let account = new Account(1, 'David', 0)
 // account.deposit(10)
@@ -78,3 +85,6 @@ let student = new Student(1, 'John', 'Snow')
 console.log(student.fullName)
 student.walk()
 student.takeTest()
+
+let professor = new Teacher('Kolia', 'Melkadze')
+console.log(professor.fullName)
