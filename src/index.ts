@@ -1,13 +1,13 @@
-//built in types
+//NOTE built in types
 let sales = 123_456_789
 let course = 'TypesScript'
 let is_published = true
-// arrays
+//NOTE  arrays
 let numbers: number[] = [1, 2, 3]
 let numbersAny = []
-// Tuples
+//NOTE  Tuples
 let user: [number, string] = [1, 'David']
-// Enums
+//NOTE  Enums
 enum Size {
     Small = 's',
     Medium = 'm',
@@ -19,13 +19,13 @@ const enum Sizes {
     Large
 }
 let mySize: Sizes = Sizes.Medium
-//Functions
+//NOTE Functions
 function calculateTax(income: number, taxYear = 2022): number {
     return taxYear < 2022 ? income + 1.2 : income * 1.3
 }
 
 calculateTax(10_000)
-//Objects
+//NOTE Objects
 let employee: {
     readonly id: number
     name: string
@@ -38,7 +38,7 @@ let employee: {
 }
 
 employee.name = 'David'
-//Aliases
+//NOTE Aliases
 type Employee = {
     readonly id: number
     name: string
@@ -50,15 +50,15 @@ let employeeOne: Employee = {
     name: 'Kolia',
     retire: (date: Date) => console.log(date)
 }
-// Union types
+//NOTE  Union types
 function kgToLbs(weight: number | string): number {
-    //Narrowing
+    //NOTE Narrowing
     return typeof weight === 'number' ? weight * 2.2 : parseInt(weight) * 2.2
 }
 
 kgToLbs(10)
 kgToLbs('10kg')
-//Intersection Types
+//NOTE Intersection Types
 type Draggable = {
     drag: () => void
 }
@@ -71,19 +71,19 @@ let textBox: UIWidget = {
     drag: () => {},
     resize: () => {}
 }
-//Literal Types
+//NOTE Literal Types
 type Quantity = 50 | 100 | 150
 let quantity: Quantity = 100
 
 type Metric = 'cm' | 'inch'
-//Nullable Types
+//NOTE Nullable Types
 function greet(name: string | null | undefined) {
     return name ? console.log(name.toUpperCase()) : console.log('Hola! Stranger')
 }
 
 greet(null)
 greet(undefined)
-//Optional Chaining
+//NOTE Optional Chaining
 type Customer = {
     birthday?: Date
 }
@@ -92,25 +92,25 @@ function getCustomer(id: number): Customer | null | undefined {
 }
 
 let customer = getCustomer(0)
-//Optional property access operator ?
+//NOTE Optional property access operator ?
 console.log(customer?.birthday?.getFullYear())
-//Optional element access operator
-// customer?.[0]
+//NOTE Optional element access operator
+//NOTE  customer?.[0]
 
-//Optional call
+//NOTE Optional call
 let log: any = null
 log?.('a')
-//The nullish coalescing operator ??
+//NOTE The nullish coalescing operator ??
 let speed: number | null = null
 let ride = {
     speed: speed ?? 30
 }
-//Type Assertions
+//NOTE Type Assertions
 let phone = document.getElementById('phone') as HTMLInputElement
 let phone1 = <HTMLInputElement>document.getElementById('phone')
-//The unknown Type
+//NOTE The unknown Type
 function render(document: unknown) {
-    //Narrowing
+    //NOTE Narrowing
     if (typeof document === 'string') {
         document.toUpperCase()
     }
@@ -125,18 +125,18 @@ function render(document: unknown) {
     document.whateverWeWant()
     */
 }
-//The never Type
+//NOTE The never Type
 /*
 function reject(message: string): never {
     throw new Error(message)
 }
 function processEvents(): never {
     while (true) {
-        //Read a message from a queue
+        // Read a message from a queue
     }
 }
 
-// processEvents()
+//NOTE  processEvents()
 reject('...')
 console.log('Hello World')
 */
