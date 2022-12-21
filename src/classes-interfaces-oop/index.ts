@@ -76,6 +76,38 @@ class Circle extends Shape {
         console.log('Rendering a circle')
     }
 }
+//NOTE Interface classes
+interface ICalendar {
+    name: string
+    addEvent(): void
+    removeEvent(): void
+}
+interface ICloudCalendar extends ICalendar {
+    sync(): void
+}
+class GoogleCalendar implements ICalendar {
+    constructor(public name: string) {}
+    addEvent(): void {
+        throw new Error('Method not implemented.')
+    }
+    removeEvent(): void {
+        throw new Error('Method not implemented.')
+    }
+}
+
+class AnotherCalendar implements ICloudCalendar {
+    constructor(public name: string) {}
+
+    sync(): void {
+        throw new Error('Method not implemented.')
+    }
+    addEvent(): void {
+        throw new Error('Method not implemented.')
+    }
+    removeEvent(): void {
+        throw new Error('Method not implemented.')
+    }
+}
 //NOTE Polymorphism
 printNames([
     new Student(1, 'John', 'Smith'),
