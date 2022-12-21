@@ -59,6 +59,32 @@ class Teacher extends Person {
         return 'Professor ' + super.fullName
     }
 }
+class Principal extends Person {
+    override get fullName() {
+        return 'Principal ' + super.fullName
+    }
+}
+//NOTE Polymorphism
+printNames([
+    new Student(1, 'John', 'Smith'),
+    new Teacher('Lena', 'Snow'),
+    new Person('Kolia', 'Melkadze'),
+    new Student(2, 'Emanuel', 'Si'),
+    new Teacher('Cornelia', 'Joliet'),
+    new Principal('Julius', 'Cosie')
+])
+/*Prints
+    - John Smith
+    - Professor Lena Snow
+    - Kolia Melkadze
+    - Emanuel Si
+    - Professor Cornelia Joliet
+    - Principal Julius Cosie
+*/
+
+function printNames(people: Person[]) {
+    for (let person of people) console.log(person.fullName)
+}
 
 // //General Class
 // let account = new Account(1, 'David', 0)
@@ -81,10 +107,10 @@ class Teacher extends Person {
 // console.log(Ride.activeRides)
 
 //Inheritance
-let student = new Student(1, 'John', 'Snow')
-console.log(student.fullName)
-student.walk()
-student.takeTest()
+// let student = new Student(1, 'John', 'Snow')
+// console.log(student.fullName)
+// student.walk()
+// student.takeTest()
 
-let professor = new Teacher('Kolia', 'Melkadze')
-console.log(professor.fullName)
+// let professor = new Teacher('Kolia', 'Melkadze')
+// console.log(professor.fullName)
