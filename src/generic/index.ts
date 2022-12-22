@@ -58,7 +58,9 @@ interface ShoppingList {
 }
 /*
 NOTE: Type Mapping
-Search for typescript utility types
+
+See the complete list of utility types:
+link: https://www.typescriptlang.org/docs/handbook/utility-types.html
 */
 type ReadOnly<T> = {
     [key in keyof T]: T[key]
