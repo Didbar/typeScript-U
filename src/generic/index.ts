@@ -51,3 +51,35 @@ function echo<T extends PersonG>(value: T): T {
 
 let res = echo(new PersonG('John'))
 let res1 = echo(new CustomerG('Kolia'))
+//NOTE: Extending Generic Classes
+interface ShoppingList {
+    title: string
+    price: number
+}
+class Store<T> {
+    protected _objects: T[] = []
+
+    add(obj: T): void {
+        this._objects.push(obj)
+    }
+}
+//Pass on the generic type parameter
+class CompressibleStore<T> extends Store<T> {
+    compress() {}
+}
+//Restrict the generic type parameter
+class SearchableStore<T extends { name: string }> extends Store<T> {
+    find(name: string): T | undefined {
+        return this._objects.find((obj) => obj.name === name)
+    }
+}
+// Fix the generic type parameter
+class ShoppingListStore extends Store<ShoppingList> {
+    filterByCategory(category: string): ShoppingList[] {
+        console.log(category)
+        return []
+    }
+}
+
+let store = new CompressibleStore<ShoppingList>()
+store.compress()
