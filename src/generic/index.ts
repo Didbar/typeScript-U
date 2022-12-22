@@ -62,6 +62,10 @@ class Store<T> {
     add(obj: T): void {
         this._objects.push(obj)
     }
+    //NOTE: Keyof operator
+    find(property: keyof T, value: unknown): T | undefined {
+        return this._objects.find((obj) => obj[property] === value)
+    }
 }
 //Pass on the generic type parameter
 class CompressibleStore<T> extends Store<T> {
@@ -69,7 +73,7 @@ class CompressibleStore<T> extends Store<T> {
 }
 //Restrict the generic type parameter
 class SearchableStore<T extends { name: string }> extends Store<T> {
-    find(name: string): T | undefined {
+    search(name: string): T | undefined {
         return this._objects.find((obj) => obj.name === name)
     }
 }
@@ -80,6 +84,11 @@ class ShoppingListStore extends Store<ShoppingList> {
         return []
     }
 }
-
 let store = new CompressibleStore<ShoppingList>()
 store.compress()
+let newStore = new Store<ShoppingList>()
+store.add({ price: 1, title: 'a' })
+store.find('title', 'a')
+store.find('price', '1')
+//Error when
+// store.find('pricesome', '1')
