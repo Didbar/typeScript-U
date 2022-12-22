@@ -56,6 +56,24 @@ interface ShoppingList {
     title: string
     price: number
 }
+/*
+NOTE: Type Mapping
+Search for typescript utility types
+*/
+type ReadOnly<T> = {
+    [key in keyof T]: T[key]
+}
+type Optional<T> = {
+    [key in keyof T]?: T[key]
+}
+type Nullable<T> = {
+    [key in keyof T]: T[key] | null
+}
+let newList: ReadOnly<ShoppingList> = {
+    title: 'a2',
+    price: 3
+}
+
 class Store<T> {
     protected _objects: T[] = []
 
