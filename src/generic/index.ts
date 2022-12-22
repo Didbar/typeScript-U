@@ -39,3 +39,15 @@ let result = fetch<UserG>('url')
 console.log(result.data?.username)
 let anotherResult = fetch<ProductG>('url')
 console.log(anotherResult.data?.title)
+//NOTE: Generic Constraints
+class PersonG {
+    constructor(public name: string) {}
+}
+class CustomerG extends PersonG {}
+
+function echo<T extends PersonG>(value: T): T {
+    return value
+}
+
+let res = echo(new PersonG('John'))
+let res1 = echo(new CustomerG('Kolia'))
