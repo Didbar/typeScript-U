@@ -63,8 +63,14 @@ See the complete list of utility types:
 link: https://www.typescriptlang.org/docs/handbook/utility-types.html
 */
 type ReadOnly<T> = {
-    [key in keyof T]: T[key]
+    readonly [key in keyof T]: T[key]
 }
+
+let roShoppingList: ReadOnly<ShoppingList> = {
+    title: 'title',
+    price: 1
+}
+// Compiler error -> roShoppingList.title = 1
 type Optional<T> = {
     [key in keyof T]?: T[key]
 }
@@ -109,6 +115,6 @@ store.compress()
 let newStore = new Store<ShoppingList>()
 store.add({ price: 1, title: 'a' })
 store.find('title', 'a')
-store.find('price', '1')
+store.find('price', 1)
 //Error when
 // store.find('pricesome', '1')
