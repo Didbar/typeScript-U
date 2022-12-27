@@ -1,11 +1,4 @@
-function Log(target: any, methodName: string, descriptor: PropertyDescriptor) {
-    const original = descriptor.value as Function
-    descriptor.value = function (...args: any) {
-        console.log('Before')
-        original.call(this, ...args)
-        console.log('After')
-    }
-}
+import { Log } from './decoratorsList'
 
 class PersonD {
     @Log

@@ -1,20 +1,4 @@
-function MinLength(length: number) {
-    return (target: any, propertyName: string) => {
-        let value: string
-        const descriptor: PropertyDescriptor = {
-            get() {
-                return value
-            },
-            set(newValue: string) {
-                if (newValue.length < length) {
-                    throw new Error(`${propertyName} should be at least ${length} char long`)
-                }
-                value = newValue
-            }
-        }
-        Object.defineProperty(target, propertyName, descriptor)
-    }
-}
+import { MinLength } from './decoratorsList'
 
 class UserD {
     @MinLength(4)

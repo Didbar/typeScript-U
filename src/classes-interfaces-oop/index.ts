@@ -1,2 +1,2 @@
-import { main } from './classes'
+import main from './classes'
 main()

@@ -112,7 +112,7 @@ function printNames(people: Person[]) {
     for (let person of people) console.log(person.fullName)
 }
 //General Class
-export function main() {
+export default function main() {
     let account = new Account(1, 'David', 0)
     account.deposit(10)
     console.log(account instanceof Account)

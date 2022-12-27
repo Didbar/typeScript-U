@@ -1,24 +1,8 @@
-type ComponentOptions = {
-    selector: string
-}
-
-//Decorator factory
-function Component(options: ComponentOptions) {
-    return (constructor: Function) => {
-        console.log('Component decorator called')
-        constructor.prototype.options = options
-        constructor.prototype.uniqueID = Date.now()
-        constructor.prototype.insertInDom = () => {
-            console.log('Inserting the component in the DOM')
-        }
-    }
-}
-//Pipe Decorator
-function Pipe(constructor: Function) {
-    console.log('Pipe decorator called')
-    constructor.prototype.pipe = true
-}
+import { Component, Pipe } from './decoratorsList'
 
 @Component({ selector: '#my-profile' })
 @Pipe
 class ProfileComponent {}
+
+let newProfile = new ProfileComponent()
+console.log(newProfile)
