@@ -1,7 +1,7 @@
-//NOTE: alow JS
+//NOTE: allow JS
 import { calculateTaxJS } from './utils/tax'
 
-const tax = calculateTaxJS(1000)
+const tax = calculateTaxJS(10_000)
 console.log(tax)
 
 //NOTE built in types
