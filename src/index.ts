@@ -1,6 +1,9 @@
 //NOTE: allow JS
 import { calculateTaxJS } from './utils/tax'
+//NOTE: Using definitely typed declaration
+import * as _ from 'lodash'
 
+_.clone([1, 2, 3, 4])
 const tax = calculateTaxJS(10_000)
 console.log(tax)
 
