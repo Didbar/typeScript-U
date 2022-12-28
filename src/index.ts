@@ -1,3 +1,9 @@
+//NOTE: alow JS
+import { calculateTaxJS } from './utils/tax'
+
+const tax = calculateTaxJS(1000)
+console.log(tax)
+
 //NOTE built in types
 let sales = 123_456_789
 let course = 'TypesScript'
@@ -106,8 +112,8 @@ let ride = {
     speed: speed ?? 30
 }
 //NOTE Type Assertions
-let phone = document.getElementById('phone') as HTMLInputElement
-let phone1 = <HTMLInputElement>document.getElementById('phone')
+// let phone = document.getElementById('phone') as HTMLInputElement
+// let phone1 = <HTMLInputElement>document.getElementById('phone')
 //NOTE The unknown Type
 function render(document: unknown) {
     //NOTE Narrowing
